@@ -1,0 +1,87 @@
+$breakpoints: (
+        lg: 1024,
+        md: 768,
+        sm: 640
+);
+$media-direction: max !default;
+
+@mixin css_property($property, $value){
+    @if type_of($value) == string{
+        #{$property}: unquote($value);
+    }@else{
+        #{$property}: $value;
+    }
+}
+
+//@media screen
+@mixin media($properties, $orientation: false){
+
+    @each $property, $value in $properties {
+        @if type_of($value) == 'map' {
+
+            @each $screen, $val in $value {
+
+                @if $screen == 'print' {
+
+                    @media print{
+                        @include css_property($property, $val);
+                    }
+
+                } @else {
+
+                    @if $orientation {
+
+                        @if map-has-key($breakpoints, $screen){
+                            @media only screen and (#{$media-direction}-width: map-get($breakpoints, $screen) + 'px') and (orientation: $orientation){
+                                @include css_property($property, $val);
+                            }
+                        }@else{
+                            @if $screen == all {
+                                @media only screen and (orientation: $orientation) {
+                                    @include css_property($property, $val);
+                                }
+                            }@else{
+                                @media only screen and (#{$media-direction}-width: $screen + 'px') and (orientation: $orientation) {
+                                    @include css_property($property, $val);
+                                }
+                            }
+                        }
+
+                    } @else {
+
+                        @if map-has-key($breakpoints, $screen){
+                            @media only screen and (#{$media-direction}-width: map-get($breakpoints, $screen) + 'px'){
+                                @include css_property($property, $val);
+                            }
+                        }@else{
+                            @if $screen == all {
+                                @include css_property($property, $val);
+                            }@else{
+                                @media only screen and (#{$media-direction}-width: $screen + 'px'){
+                                    @include css_property($property, $val);
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+        } @else {
+
+            @if $property == 'extend' {
+                @extend #{unquote($value)} !optional;
+            }@else{
+                @if $orientation {
+                    @media only screen and (orientation: $orientation) {
+                        @include css_property($property, $value);
+                    }
+                } @else {
+                    @include css_property($property, $value);
+                }
+            }
+
+        }
+    }
+};

@@ -1,0 +1,47 @@
+.transition,
+body {
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 640px) and (orientation: portrait) {
+  body {
+    height: 50%;
+  }
+
+  body {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 548px) and (orientation: portrait) {
+  body {
+    height: 10%;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  body {
+    margin: 10px 0;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  body {
+    height: 100px;
+  }
+}
+
+@media print {
+  body {
+    height: 10cm;
+  }
+}
