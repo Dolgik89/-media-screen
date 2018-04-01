@@ -1,0 +1,25 @@
+{
+  "name": "media_screen",
+  "version": "1.0.0",
+  "description": "SassScript for short media queries",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dolgalyov Eugene",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^3.2.0"
+  }
+}
