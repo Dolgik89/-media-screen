@@ -7,7 +7,7 @@ body {
     @include media((
         margin: '10px 0',
         width: 100%,
-        height: (all: 100px, 500-200: 100%, sm: 50%, 548: 10%, print: 10cm),
+        height: (all: 120px, 500-200: 100%, sm: 50%, 548: 10%, print: 10cm),
         font-size: (sm: 12px),
         extend: '.transition',
         transform: (lg: rotate(45deg)),
