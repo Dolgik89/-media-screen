@@ -2,7 +2,6 @@
 .transition{
     transition: all .3s;
 };
-$width: 548;
 body {
     @include media((
         margin: '10px 0',
